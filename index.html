@@ -1,0 +1,455 @@
+<!-- Taskbar -->
+<head>
+	<meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+</head>
+<body oncontextmenu="return false;">
+  <div class="taskbar" id="taskbar">
+    <div class="icons">
+      <div class="icons-right">
+        <a href="#" onclick="$('#sound-modal').addClass('showpopup');" id="sound" class="small-icons"></a>
+        <a href="#" onclick="$('#wifi-modal').addClass('showpopup');" id="wifi" class="small-icons"></a>
+        <div class="datetime">
+          <span id="hour"> </span>
+          <span id="date">
+            <!-- 03/05/2018 -->
+          </span>
+        </div>
+        <a href="#" id="notifications"</a>
+        <a href="#" id="return" onmouseenter="set_menu('menu-peek',2)"></a>
+      </div>
+      <div class="icons-left">
+        <a href="#" onclick="$('#start-menu-modal').addClass('showpopup');" id="start-menu"</a>
+        <a href="#" id="search"></a>
+        <a href="#" id="tabs-windows"></a>
+        <a href="#" class="px"></a>
+        <a href="#" id="folder" class="border"></a>
+        <a href="#" onclick="$('#chrome-pop-up').addClass('showpopup');" id="chrome" class="border"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop -->
+  <div class="desktop" id="desktop"  onmouseenter="set_menu('menu-desktop',8)">
+    <!-- Icons on the desktop -->
+    <div class="icons-dekstop">
+      <div class="icon-desktop">
+        <a href="#">
+			<img src="img/this_pc_icon.png" alt="" />
+			<span>هذا الكمبيوتر الشخصي</span>
+		</a>
+      </div>
+	  <div class="icon-desktop">
+        <a href="#">
+			<img src="img/user_icon.png" alt="" />
+			<span>المستخدم</span>
+		</a>
+      </div>
+	  <div class="icon-desktop" id="recyclebin" onmouseenter="set_menu('menu-recyclebin',4)">
+        <a href="#">
+			<img src="img/recycle_bin_empty_icon.png" alt="" />
+			<span>سلة المحذوفات</span>
+		</a>
+      </div>
+    </div>
+
+    <!-- Speakers -->
+    <div id="sound-modal">
+      <div class="sound-text">
+        <span>Speakers</span>
+      </div>
+      <div class="sound-progress">
+        <i class="fas fa-volume-up"></i>
+        <div class="bar-sound"></div>
+        <div class="bar-sound-drag"></div>
+        <span class="data-value">50%</span>
+      </div>
+    </div>
+
+    <!-- Wifi -->
+    <div id="wifi-modal">
+      <div class="list-networks">
+        <div class="networks">
+          <div class="icons-wifi">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <div class="text-wifi">
+            <span class="name-wifi">Wifi</span>
+            <span class="type-wifi">Connected, securised</span>
+            <span class="propriety">Propriety</span>
+            <button>Disconnect</button>
+          </div>
+        </div>
+        <div class="networks">
+          <div class="icons-wifi">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <span class="name-wifi">Wifi</span>
+          <span class="type-wifi">Open</span>
+        </div>
+        <div class="networks">
+          <div class="icons-wifi">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <span class="name-wifi">Wifi</span>
+          <span class="type-wifi">Open</span>
+        </div>
+        <div class="options-wifi">
+          <div class="options-wifi-text">
+            <span>Options internet & security</span>
+            <span>Modify options, for a better connection</span>
+          </div>
+          <div class="options-bloc">
+            <div class="bloc-options">
+              <i class="fas fa-wifi"></i>
+              <span>Wifi</span>
+            </div>
+            <div class="bloc-options">
+              <i class="fas fa-plane"></i>
+              <span>Plane mode</span>
+            </div>
+            <div class="bloc-options">
+              <i class="fab fa-bluetooth-b"></i>
+              <span>Bluetooth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chrome -->
+  <div class="chrome" id="chrome-pop-up">
+    <div class="pop-up">
+      <!-- Taskbar chrome-->
+
+      <!-- Top -->
+      <div class="chrome-top">
+        <div class="chrome-tabs">
+          <div class="triangle"></div>
+          <div class="tabs">
+            <span class="icons-tabs">
+              <i class="fab fa-codepen"></i>
+            </span>
+            <span class="text-tabs">Google</span>
+            <span class="close-tabs">x</span>
+          </div>
+          <div class="triangle-2"></div>
+          <div class="new-tabs"></div>
+        </div>
+        <div class="chrome-close">
+          <a href="#"><i class="fas fa-minus"></i></a>
+          <a href="#"><i class="far fa-window-restore"></i></a>
+          <a href="#"><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <!-- Bottom -->
+      <div class="chrome-bottom">
+        <div class="options-bar">
+          <div class="icons-bar">
+            <div class="arrows">
+              <a href="#"><i class="fas fa-arrow-left"></i></a>
+              <a href="#"><i class="fas fa-arrow-right"></i></a>
+              <a href="#"><i class="fas fa-sync"></i></a>
+            </div>
+            <div class="search-bar">
+              <span class="info"><i class="fas fa-lock"></i> Securised</span>
+              <input type="text" value="http://www.google.com" />
+              <span class="star"><i class="far fa-star"></i></span>
+            </div>
+            <div class="points-bar">
+              <div class="points">
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+              </div>
+            </div>
+          </div>
+          <div class="bookmarks">
+            <div class="folder-book">
+              <a href="#"
+                ><span>P</span> Pure</a
+              >
+            </div>
+            <div class="folder-book">
+              <a
+                href="#"
+                ><i class="fab fa-css3-alt"></i> CSS</a
+              >
+            </div>
+            <div class="folder-book">
+              <a  href="#"
+                ><i class="fab fa-windows"></i> Windows 10</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Bookmarks -->
+      </div>
+      <iframe
+        src="https://www.google.com"
+        frameborder="0"
+        width="895px"
+        height="404px"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- Start menu -->
+  <div id="start-menu-modal">
+    <div id="user">
+      <a class="push" href="#"><i class="fas fa-bars"></i></a>
+      <a href="#"><i class="fas fa-user"></i></a>
+      <a href="#"><i class="fas fa-cog"></i></a>
+      <a href="#"><i class="fas fa-power-off"></i></a>
+    </div>
+    <div id="apps">
+      <a class="category" href="#">&</a>
+      <a href="#"
+        ><img
+          src="https://image.noelshack.com/fichiers/2018/22/1/1527510180-logo-microsoft-access-20132.png"
+          alt="access"
+        />
+        <span>Access</span></a
+      >
+      <a href="#"
+        ><img
+          src="http://assets.nnm-club.ws/forum/image.php?link=http://s019.radikal.ru/i622/1709/cc/334931ae4fe7.png"
+          alt="sublime"
+        />
+        <span>Sublime text 3</span></a
+      >
+    </div>
+    <div id="others">
+      <div class="title-others">
+        Office 365
+      </div>
+      <div class="box-others">
+        <div class="box">
+          <img
+            src="https://image.noelshack.com/fichiers/2018/22/1/1527527145-logo-microsoft-word-20132.png"
+            alt=""
+          />
+          <span>Word</span>
+        </div>
+        <div class="box">
+          <img
+            src="https://image.noelshack.com/fichiers/2018/22/1/1527527145-logo-microsoft-excel-20132.png"
+            alt=""
+          />
+          <span>Excel</span>
+        </div>
+        <div class="box">
+          <img
+            src="https://image.noelshack.com/fichiers/2018/22/1/1527527145-logo-microsoft-powerpoint-2013.png"
+            alt=""
+          />
+          <span>Powerpoint</span>
+        </div>
+        <div class="box">
+          <img
+            src="https://image.noelshack.com/fichiers/2018/22/1/1527527145-logo-microsoft-outlook-2013.png"
+            alt=""
+          />
+          <span>Outlook</span>
+        </div>
+        <div class="box">
+          <img
+            src="https://image.noelshack.com/fichiers/2018/22/1/1527527458-publisher-by-navdbest-d6186xo-600x6002.png"
+            alt=""
+          />
+          <span>Publisher</span>
+        </div>
+        <div class="box">
+          <img
+            src="https://image.noelshack.com/fichiers/2018/22/1/1527527243-logo-microsoft-onenote-20132.png"
+            alt=""
+          />
+          <span>OneNote</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" id="hdnEmptyRecycleBin" value="none" />
+  <input type="hidden" id="hdnPeekDesktop" value="none" />
+
+<ul class="menu" id="menu-peek">
+    <li class="menu-item">
+		<button type="button" class="menu-btn">
+            <i class="fa fa-folder-open""></i>
+            <span class="menu-text">أظهر سطح المكتب</span>
+        </button>
+    </li>
+    <li class="menu-item">
+        <button type="button" class="menu-btn" onclick="onPeekDesktopClick()">
+            <span class="menu-text">نظرة خاطفة على سطح المكتب</span>
+        </button>
+    </li>
+</ul>
+
+<ul class="menu" id="menu-recyclebin">
+    <li class="menu-item">
+		<button type="button" class="menu-btn">
+            <i class="fa fa-folder-open""></i>
+            <span class="menu-text">فتح</span>
+        </button>
+    </li>
+    <li class="menu-item">
+      <button type="button" class="menu-btn" onclick="onClearRecycleBin()">
+              <i class="fa fa-folder-open""></i>
+              <span class="menu-text">إفراغ سلة المحذوفات</span>
+          </button>
+      </li>
+    <li class="menu-item disabled">
+        <button type="button" class="menu-btn">
+            <span class="menu-text">فتح في نافذة جديدة</span>
+        </button>
+    </li>
+    <li class="menu-separator"></li>
+    <li class="menu-item">
+        <button type="button" class="menu-btn">
+            <i class="fa fa-reply"></i>
+            <span class="menu-text">رد</span>
+        </button>
+    </li>
+    <li class="menu-item">
+        <button type="button" class="menu-btn">
+            <i class="fa fa-star"></i>
+            <span class="menu-text">تفضيل</span>
+        </button>
+    </li>
+</ul>
+
+<ul class="menu" id="menu-desktop">
+    <li class="menu-item">
+		<button type="button" class="menu-btn">
+            <i class="fa fa-folder-open""></i>
+            <span class="menu-text">فتح</span>
+        </button>
+    </li>
+    <li class="menu-item disabled">
+        <button type="button" class="menu-btn">
+            <span class="menu-text">فتح في نافذة جديدة</span>
+        </button>
+    </li>
+    <li class="menu-separator"></li>
+    <li class="menu-item">
+        <button type="button" class="menu-btn">
+            <i class="fa fa-reply"></i>
+            <span class="menu-text">رد</span>
+        </button>
+    </li>
+    <li class="menu-item">
+        <button type="button" class="menu-btn">
+            <i class="fa fa-star"></i>
+            <span class="menu-text">تفضيل</span>
+        </button>
+    </li>
+    <li class="menu-item submenu">
+        <button type="button" class="menu-btn">
+            <i class="fa fa-users"></i>
+            <span class="menu-text">اجتماعي</span>
+        </button>
+        <ul class="menu">
+            <li class="menu-item">
+                <button type="button" class="menu-btn">
+                    <i class="fa fa-comment"></i>
+                    <span class="menu-text">كتابة تعليق</span>
+                </button>
+            </li>
+            <li class="menu-item submenu">
+                <button type="button" class="menu-btn">
+                    <i class="fa fa-share"></i>
+                    <span class="menu-text">مشاركة</span>
+                </button>
+                <ul class="menu">
+                    <li class="menu-item">
+                        <button type="button" class="menu-btn">
+                            <i class="fa fa-twitter"></i>
+                            <span class="menu-text">Twitter</span>
+                        </button>
+                    </li>
+                    <li class="menu-item">
+                        <button type="button" class="menu-btn">
+                            <i class="fa fa-facebook-official"></i>
+                            <span class="menu-text">Facebook</span>
+                        </button>
+                    </li>
+                    <li class="menu-item">
+                        <button type="button" class="menu-btn">
+                            <i class="fa fa-google-plus"></i>
+                            <span class="menu-text">Google Plus</span>
+                        </button>
+                    </li>
+                    <li class="menu-item">
+                        <button type="button" class="menu-btn">
+                            <i class="fa fa-envelope"></i>
+                            <span class="menu-text">بريد الكتروني</span>
+                        </button>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="menu-separator"></li>
+    <li class="menu-item">
+        <button type="button" class="menu-btn">
+            <i class="fa fa-download"></i>
+            <span class="menu-text">حفظ</span>
+        </button>
+    </li>
+    <li class="menu-item">
+        <button type="button" class="menu-btn">
+            <i class="fa fa-edit"></i>
+            <span class="menu-text">إعادة تسمية</span>
+        </button>
+    </li>
+    <li class="menu-item">
+        <button type="button" class="menu-btn">
+            <i class="fa fa-trash"></i>
+            <span class="menu-text">حذف</span>
+        </button>
+    </li>
+</ul>
+
+
+  <script src="script.js"></script>
+  <script>
+    var datetime = new Date();
+    document.getElementById("date").innerHTML =
+      datetime.getDate() +
+      "/" +
+      datetime.getMonth() +
+      "/" +
+      datetime.getFullYear();
+	var hours = datetime.getHours();
+	if (hours < 10) hours = '0' + hours;
+	
+	var Minutes = datetime.getMinutes();
+	if (Minutes < 10) Minutes = '0' + Minutes;
+
+    document.getElementById("hour").innerHTML =
+      hours + ":" + Minutes;
+	
+	//close the all windows
+	 $(".desktop").on("click", function() {
+       $(".showpopup").removeClass('showpopup');
+     });
+	
+    // $(document).bind("click", function(event) {
+    //   $("#context-menu").hide();
+    // });
+
+    function onPeekDesktopClick() {
+  peekDesktop = !peekDesktop;
+  $("#hdnPeekDesktop").val(peekDesktop);
+}
+function onClearRecycleBin() {
+  $("#hdnEmptyRecycleBin").val(true);
+}
+  </script>
+</body>
